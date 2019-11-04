@@ -37,8 +37,10 @@ function getTotalNumberOfCoursesInRoom(){
 
 function display(data){
     let res = data;
+    
     if(Array.isArray(data)){
         res = data.length  + ' result has been found \n' +data.join('\n');
     }
+
     result.innerText = res;
 }
