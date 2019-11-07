@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" multiple name="files" onchange="onSelected(files)" id=file>
+    <div id=res>
+
+    </div>
+</body>
+<script>
+    
+    var remotefile;
+    var sameFiles = [];
+    var selectedFiles = [];
+    var url = 'https://maeyler.github.io/JS/data/Courses.txt';
+
+    async function readFileAsync (file){
+        return new Promise( (resolve,reject) => {
+            
+            let fileReader =  new FileReader();
+
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            }
+
+            fileReader.onerror = () => {
+                reject(fileReader.error);
+            }
+
+            fileReader.readAsText(file);
+            
+        });
+    }
+
+    async function onSelected(files){
+        clear();
+        selectedFiles = files;
+        
+        for (const file of files) {
+            
+            let read = await readFileAsync(file);
+
+            if(read ==  remotefile){
+                sameFiles.push(file);
+            }
+
+        }
+
+        display();
+    }
+
+    function display(){
+        let fileArray = [...selectedFiles];
+        res.innerText = `
+            remote file: ${url}
+            Choose files: ${fileArray.length}
+            ${fileArray.map(file => file.name).toString()}
+            Result: ${
+                sameFiles.length == 0 ?
+                `${fileArray.length} checked, all are different`:
+                `${fileArray.length} checked, ${sameFiles[0].name} equals to ${url}`
+            }
+
+        `
+    }
+
+    async function init(){
+        let data = await fetch(url);
+        remotefile = await data.text();
+        res.innerText = `
+        
+            remote file: ${url}
+
+        `
+    }
+
+    function clear(){
+        sameFiles = [];
+        selectedFiles = [];
+    }
+
+    init();
+
+</script>
+</html>

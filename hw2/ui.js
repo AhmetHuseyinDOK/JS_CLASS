@@ -4,7 +4,7 @@ function onGetRandomStudentClicked(){
 }
 
 function onGetRandomCourseClicked(){
-    let course = database.getRandomCourse();
+    let course = database.getRandomCourse().classes.random();
     display(course);
 }
 
