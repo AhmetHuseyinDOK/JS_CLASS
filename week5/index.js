@@ -39,7 +39,7 @@ fetch('https://maeyler.github.io/JS/data/Courses.txt').then((res)=> {
 })
 
 function getCourse(code){
-    let filter = list.filter((course)  => code == course.code);
+    let filter = list.filter((course)  => code == course.code).toUpperCase();
     if(filter[0]){
         return filter[0];
     }
