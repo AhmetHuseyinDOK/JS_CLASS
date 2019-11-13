@@ -28,9 +28,16 @@ C
 F 
 <input type=number id=fah value=0 onChange="setC()">
 <br>
+
 <b>Sample code</b>
 <pre id=sample>
-
+    function setF(){
+      fah.value = (1.8 *  cel.value + 32).toFixed(1)
+    }
+    
+    function setC(){
+      cel.value = ((fah.value - 32) / 1.8).toFixed(1)
+    }
 </pre>
 
 <hr />
