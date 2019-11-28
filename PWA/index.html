@@ -8,8 +8,30 @@
     <link rel="manifest" href="manifest.json">
     <title>Document</title>
 </head>
-
+<style>
+    
+</style>
 <body>
-    <h1>Ahmet Huseyin Dok</h1>
+    <h1 style="text-align: center;">Ahmet Huseyin Dok</h1>
+    <ul id=links></ul>
 </body>
+
+    <script>
+        let data = [
+            {
+                name:'CW8 - TABLE CREATOR',
+                link:'https://ahmethuseyindok.github.io/JS_CLASS/cw8/'
+            },
+            {
+                name: "CW7 - I HAVENT DONE IT YET, I WILL DO IT ASAP"
+            },
+            {
+                name:'CW6 - REMOTE FILE COMPARER',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/cw6/index.html'
+            }
+        ]
+
+        links.innerHTML = data.map((link) => `<li><a href='${link.link}'> ${link.name}</a></li>`).join("");
+    </script>
+
 </html>
