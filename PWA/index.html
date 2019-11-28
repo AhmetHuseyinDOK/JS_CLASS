@@ -10,9 +10,30 @@
 </head>
 <style>
     
+    body{
+        padding: 100px;
+    }
+
+    li{
+        background: black;   
+        font-weight: 600;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    a li{
+        color: white;
+        font-size: large;
+    }
+
+    li:hover{
+        background: blue;
+        transition: all 0.5s;
+    }
 </style>
 <body>
     <h1 style="text-align: center;">Ahmet Huseyin Dok</h1>
+    <h4 style="text-align: center;"><a href="https://github.com/AhmetHuseyinDOK/JS_CLASS">my github repo</a><h6>
     <ul id=links></ul>
 </body>
 
@@ -31,7 +52,7 @@
             }
         ]
 
-        links.innerHTML = data.map((link) => `<li><a href='${link.link}'> ${link.name}</a></li>`).join("");
+        links.innerHTML = data.map((link) => `<a href='${link.link}'><li> ${link.name}</li></a>`).join("");
     </script>
 
 </html>
