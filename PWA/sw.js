@@ -1,5 +1,5 @@
 const CACHE ='JS'
-const FILES = ['/JS_CLASS/PWA/index.html','/JS_CLASS/PWA/']
+const FILES = ['/JS_CLASS/']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
