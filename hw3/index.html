@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        background: black;
+    }
+
+    #square{
+        width: 100px;
+        height: 100px;
+        background: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body id=body>
+    <div id=square onclick="func()"></div>
+    
+</body>
+<script type="application/javascript">
+square.innerText = square.offsetWidth
+    function func(){
+        
+
+        body.animate([
+            {background: 'black'},
+            {background: 'white'}
+        ],{
+            fill: "forwards",
+            duration:1000, 
+        });
+
+        square.animate([
+           { width: square.offsetWidth+'px' , height: square.offsetHeight+'px'  }, 
+           { width: square.offsetWidth * 2+'px' , height: square.offsetHeight * 2+'px'}
+        ],{
+            fill: "forwards",
+            duration:1000, 
+        });
+        square.innerText = square.offsetWidth
+    }
+    
+</script>
+</html>
