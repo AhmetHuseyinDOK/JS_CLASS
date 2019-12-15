@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./database.js"></script>
+    <title>cw7 timing</title>
+</head>
+<body>
+    <h1>Timing</h1>
+    <button onclick="test()">test</button>
+    <div id=out></div>
+</body>
+<script>
+
+
+    const url = "https://maeyler.github.io/JS/data/"
+    const array = []     // Student objects
+    const set = new Set() // distinct names
+    const map = new Map();
+    function readData(file) {
+        console.log("readData "+file)
+        fetch(url+file)
+            .then(r => r.text())
+            .then(addStudents)
+            .catch(console.error)
+    }
+    
+    function parseStudent(line) {
+        let [id, name, gpa, ...L] = line.split('\t')
+        let std = new Student(id, name, gpa)
+        std.courses = L; return std
+    }
+
+    function addStudents(txt) {
+        let a = txt.split('\n')
+        for (let s of a) {
+            let std = parseStudent(s)
+            array.push(std.id); 
+            set.add(std.name)
+            map.set(std.id, std)
+        }
+        test();
+    }
+
+    
+
+    readData("Students.txt");
+    function test(){
+        console.log(map);
+        console.log(array);
+        let tMap = performance.now() //more accurate than Date.now()
+        let rnd = Math.floor(Math.random() * (116650000 - 116691373)) + 116691373;
+        console.log(rnd)
+        let foundMap = 0;
+        for(let i = rnd; i < rnd + 10000; i++ ){
+            if(map.get(i.toString())){ foundMap++; }    
+        }
+        tMap = performance.now() - tMap;
+        let foundArr =0 ;
+        let tArr = performance.now() //more accurate than Date.now()
+        for(let i = rnd; i < rnd + 10000; i++ ){
+            if(array.includes(i.toString())){foundArr++;}
+        }
+        tArr = performance.now() - tArr
+
+        out.innerText  = 
+        `
+        Map:
+            Found: ${foundMap }
+            Time : ${tMap.toPrecision(3)+" msec"}
+        Arr: 
+            Found: ${foundArr }
+            Time : ${tArr.toPrecision(3)+" msec"}    
+        `
+    }
+    
+
+
+
+
+
+</script>
+</html>

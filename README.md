@@ -29,3 +29,9 @@ C6 - REMOTE FILE COMPARER
 [html page](https://ahmethuseyindok.github.io/JS_CLASS/cw6/index.html)
 
 [source code](https://github.com/AhmetHuseyinDOK/JS_CLASS/tree/master/week6)
+
+C7 - MAP VS ARRAY TIMING COMPARISON
+
+[html page](https://ahmethuseyindok.github.io/JS_CLASS/cw7/index.html)
+
+[source code](https://github.com/AhmetHuseyinDOK/JS_CLASS/tree/master/cw7)
