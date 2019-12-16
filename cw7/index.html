@@ -48,19 +48,27 @@
 
     readData("Students.txt");
     function test(){
-        console.log(map);
-        console.log(array);
+        
+        
+        
+        let rnd = Math.floor(Math.random() * array.length);
+        
+        let id = Number(array[rnd]);
+        
+        
         let tMap = performance.now() //more accurate than Date.now()
-        let rnd = Math.floor(Math.random() * (116650000 - 116691373)) + 116691373;
-        console.log(rnd)
         let foundMap = 0;
-        for(let i = rnd; i < rnd + 10000; i++ ){
+        console.log(id)
+        for(let i = id; i < id + 10000; i++ ){
             if(map.get(i.toString())){ foundMap++; }    
         }
+        
+        id = Number(array[rnd]);
         tMap = performance.now() - tMap;
         let foundArr =0 ;
         let tArr = performance.now() //more accurate than Date.now()
-        for(let i = rnd; i < rnd + 10000; i++ ){
+        console.log(id)
+        for(let i = id; i < id + 10000; i++ ){
             if(array.includes(i.toString())){foundArr++;}
         }
         tArr = performance.now() - tArr
