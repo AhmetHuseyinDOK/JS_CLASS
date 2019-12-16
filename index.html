@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" sizes="192x192" href="images/JS.png">
+    <link rel="manifest" href="manifest.json">
+    <title>Document</title>
+</head>
+<style>
+    
+    body{
+        padding: 100px;
+    }
+
+    li{
+        background: black;   
+        font-weight: 600;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    a li{
+        color: white;
+        font-size: large;
+    }
+
+    li:hover{
+        background: blue;
+        transition: all 0.5s;
+    }
+</style>
+<body>
+    <h1 style="text-align: center;">Ahmet Huseyin Dok</h1>
+    <h4 style="text-align: center;"><a href="https://github.com/AhmetHuseyinDOK/JS_CLASS">my github repo</a><h6>
+    <ul id=links></ul>
+</body>
+
+    <script>
+        let data = [
+            {
+                name:'CW8 - TABLE CREATOR',
+                link:'https://ahmethuseyindok.github.io/JS_CLASS/cw8/'
+            },
+            {
+                name: "CW7 - I HAVENT DONE IT YET, I WILL DO IT ASAP"
+            },
+            {
+                name:'CW6 - REMOTE FILE COMPARER',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/cw6/index.html'
+            }
+        ]
+
+        links.innerHTML = data.map((link) => `<a href='${link.link}'><li> ${link.name}</li></a>`).join("");
+    </script>
+
+</html>
