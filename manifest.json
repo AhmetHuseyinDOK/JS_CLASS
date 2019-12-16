@@ -1,8 +1,9 @@
 {
     "name": "AHMET HUSEYIN DOK",
-    "start_url": "/JS_CLASS/index.html",
+    "start_url": "/JS_CLASS/",
     "display": "standalone",
     "background_color": "cyan",
+    "short_name":"AHD",
     "icons": [
       {
         "src": "images/JS.png",

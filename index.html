@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" sizes="192x192" href="images/JS.png">
     <link rel="manifest" href="manifest.json">
+    
     <title>Document</title>
 </head>
 <style>
@@ -80,5 +80,5 @@
 
         links.innerHTML = data.map((link) => `<a href='${link.link}'><li> ${link.name}</li></a>`).join("");
     </script>
-
+<script>navigator.serviceWorker.register('sw.js')</script>
 </html>
