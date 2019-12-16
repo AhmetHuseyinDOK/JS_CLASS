@@ -11,14 +11,22 @@
 <style>
     
     body{
-        padding: 100px;
+            padding: 100px;
     }
+
+    @media screen and (max-width: 992px) {
+        body{
+            padding: 10px;
+        }
+    }
+    
 
     li{
         background: black;   
         font-weight: 600;
         list-style-type: none;
         text-align: center;
+        margin-top: 5px;
     }
 
     a li{
@@ -44,12 +52,30 @@
                 link:'https://ahmethuseyindok.github.io/JS_CLASS/cw8/'
             },
             {
-                name: "CW7 - I HAVENT DONE IT YET, I WILL DO IT ASAP"
+                name: 'CW7 - MAP VS ARRAY TIMING COMPARISON', 
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/cw7/index.html'
             },
             {
                 name:'CW6 - REMOTE FILE COMPARER',
                 link: 'https://ahmethuseyindok.github.io/JS_CLASS/cw6/index.html'
-            }
+            },
+            {
+                name: 'CW5 - INSPECTOR MENU',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/week6/'
+            },
+            {
+                name: 'CW4 - COURSE DATABASE',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/week5'
+            },
+            {
+                name: 'CW3 - CONVERTER',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/Converter.html'
+            },
+            {
+                name: 'CW2 - COUNTER',
+                link: 'https://ahmethuseyindok.github.io/JS_CLASS/Counting.html'
+            },
+
         ]
 
         links.innerHTML = data.map((link) => `<a href='${link.link}'><li> ${link.name}</li></a>`).join("");
