@@ -12,7 +12,7 @@ function cacheCB(e) { //cache first
     let req = e.request
     e.respondWith(
       caches.match(req)
-      .then(r1 => r1 || fetch(req))
+      .then(r1 => fetch(req) || r1 )
       .catch(console.log)
     )
 }
