@@ -4,13 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HW1 Poisson File</title>
+    <title>HW1 - POISSON TABLE</title>
 </head>
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
 <body>
-    Lost file... <br>
-    Doing homework again
+    <h1>POISSON TABLE</h1>
+    <table id=tbl></table>
 </body>
 <script>
+
+    const LAMBDA = [0.5, 1, 1.5, 2, 2.5, 3];
+
+    function factorial(num){
+        let res  = 1;
+        
+        for(let i = 1; i <= num; i++){
+            res*= i;
+        }
+
+        return res;
+    }
+
+    function calcPoiss(lambda , index){
+        return Math.exp(-lambda) * ( Math.pow(lambda , index) /factorial(index));
+    }
+
+    const results = [];
+    for(let i = 0 ; i < 8 ; i++){
+        const row = [];
+    }
+
+    console.log(calcPoiss(0.5 , 2));
+
+    function calcPoissonTable(lambdas , number){
+        let res = [];
+        
+        for(let i = 0; i < number; i++){
+            res.push(lambdas.map((val , index) => calcPoiss(val , index)));
+        }
+
+        return res;
+
+    }
+
+    function createTable(headers , data){
+        let header =  `<tr>${`<th>#</th>`+headers.map( val => `<th>${val}</th>`).join(" ")} </tr>`
+        let table = data.map((row , index) => `<tr>${`<td>${index}</td>` + row.map(val => `<td>${val.toFixed(3)}</td>`).join('')}</tr>`).join("");
+        tbl.innerHTML = header + table;  
+    }
+
+    createTable(LAMBDA , calcPoissonTable(LAMBDA, 8))
 
 </script>
 </html>
